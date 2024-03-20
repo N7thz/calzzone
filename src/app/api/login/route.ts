@@ -1,6 +1,6 @@
 import { prisma } from '@/lib/prisma'
 import { User } from '@prisma/client'
-import { hash } from 'bcryptjs'
+import { compare } from 'bcryptjs'
 import { NextRequest, NextResponse } from 'next/server'
 
 export async function POST(request: NextRequest) {
@@ -13,23 +13,25 @@ export async function POST(request: NextRequest) {
         }
     })
 
-    const passwordHash = await hash(password, 6)
-
-    if (user && passwordHash === user.password) {
-        return new NextResponse(
-            'user finded',
-            {
-                status: 200,
-                statusText: 'sucess'
-            }
-        )
-    } else {
+    if (!user) {
 
         return new NextResponse(
             'error',
             {
                 status: 400,
                 statusText: 'Invalid email or password'
+            }
+        )
+    }
+
+    const isPasswordCorretly = await compare(password, user.password)
+
+    if (user && isPasswordCorretly) {
+
+        return new NextResponse(
+            'sucess',
+            {
+                status: 200
             }
         )
     }

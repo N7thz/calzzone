@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card'
 import { ScrollArea } from "@/components/ui/scroll-area"
+import { array } from '@/data'
 
 export const metadata: Metadata = {
     title: 'Calzzone | Home'
@@ -31,13 +32,22 @@ export default function Page() {
                             </CardHeader>
                             <CardContent className='flex flex-col gap-3'>
                                 {
-                                    Array
-                                        .from({ length: 12 })
-                                        .map((item, index) =>
-                                            <Card
-                                                key={index}
-                                                className='h-16 w-full rounded-md'
-                                            />
+                                    (true)
+                                        ? array
+                                            .map((_, index) =>
+                                                <Card
+                                                    key={index}
+                                                    className='h-16 w-full rounded-md flex justify-center items-center'
+                                                >
+                                                    {index}
+                                                </Card>
+                                            )
+                                        : (
+                                            <CardTitle
+                                                className='italic text-muted-foreground'
+                                            >
+                                                Você ainda não possui cards
+                                            </CardTitle>
                                         )
                                 }
                             </CardContent>
