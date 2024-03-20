@@ -3,6 +3,8 @@ import { Inter } from 'next/font/google'
 import { ThemeProvider } from '@/context/theme-provider'
 import './globals.css'
 import { Header } from '@/components/header'
+import { twMerge } from 'tailwind-merge'
+
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -18,7 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='pt-br'>
-      <body className={inter.className}>
+      <body className={twMerge(inter.className, 'backgroundImage')}>
         <ThemeProvider
           attribute='class'
           defaultTheme='system'

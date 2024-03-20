@@ -1,18 +1,17 @@
 import { prisma } from '@/lib/prisma'
 import { User } from '@prisma/client'
 import { NextRequest, NextResponse } from 'next/server'
+import { hash } from 'bcryptjs'
 
 export async function POST(request: NextRequest) {
 
-    const body: User = await request.json()
+    const { email, password: passwordString }: User = await request.json()
 
-    const user = await prisma.user.findFirst({
+    const user = await prisma.user.findUnique({
         where: {
-            email: body.email
+            email
         }
     })
-
-    console.log(user)
 
     if (user) {
 
@@ -27,8 +26,13 @@ export async function POST(request: NextRequest) {
 
     } else {
 
+        const password = await hash(passwordString, 6)
+
         await prisma.user.create({
-            data: body
+            data: {
+                email,
+                password
+            }
         })
 
         return new NextResponse('Created task', {
