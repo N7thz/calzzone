@@ -28,7 +28,6 @@ export const FormCard: FC<FormCardProps> = ({
     const {
         register,
         handleSubmit,
-        reset,
         formState: { errors }
     } = useForm<FormType>({
         resolver: zodResolver(formSchema)

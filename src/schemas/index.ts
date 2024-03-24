@@ -4,17 +4,17 @@ export const formSchema = z.object({
     email: z
         .string()
         .email({
-            message: 'o formato do email é inválido'
+            message: 'The format of the email is invalid'
         })
         .nonempty({
-            message: 'o email é obrigatório.'
+            message: 'The email is invalid.'
         }),
     password: z
         .string()
         .nonempty({
-            message: 'a senha é obrigatória.'
+            message: 'Password is required.'
         })
         .min(6, {
-            message: 'o minimo é 6 caracteres'
+            message: 'Minimum is 6 characters.'
         })
 })

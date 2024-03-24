@@ -8,7 +8,7 @@ import { Animation } from './animation'
 
 export const MainCard = () => {
 
-    const [isActive, setIsActive] = useState(true)
+    const [isActive, setIsActive] = useState(false)
 
     return (
 

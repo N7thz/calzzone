@@ -8,6 +8,8 @@ import { LucideIcon } from 'lucide-react'
 
 export type FormType = z.infer<typeof formSchema>
 
+export interface StyleProps extends ComponentProps<'div'> { }
+
 export interface AnimationProps extends ComponentProps<"div"> {
 	children: ReactNode
 	initial?: boolean | Target | VariantLabels

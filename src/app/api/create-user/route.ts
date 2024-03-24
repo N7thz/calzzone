@@ -17,10 +17,10 @@ export async function POST(request: NextRequest) {
 
         return new
             NextResponse(
-                'O email informado já existe,tente novamente com um email diferente.',
+                'The email already exist. try again more later.',
                 {
                     status: 400,
-                    statusText: 'O email informado ja existe.'
+                    statusText: 'The email already exist.'
                 }
             )
 
