@@ -1,4 +1,4 @@
-'use client'
+"use client"
 
 import { useState } from "react"
 import { FormType } from "@/@types"
@@ -14,12 +14,12 @@ export const Register = () => {
 
     const [isCreated, setIsCreated] = useState<boolean>(false)
     const [isError, setIsError] = useState<boolean>(false)
-    const [errorMessage, setErrorMessage] = useState<string>('')
+    const [errorMessage, setErrorMessage] = useState<string>("")
 
     async function createUser(data: FormType) {
 
-        const response = await fetch('/api/create-user', {
-            method: 'POST',
+        const response = await fetch("/api/create-user", {
+            method: "POST",
             body: JSON.stringify(data)
         })
 
@@ -30,14 +30,14 @@ export const Register = () => {
             setTimeout(() => {
 
                 setIsCreated(false)
-                push('/')
+                push("/")
             }, 2000)
-            
+
         } else {
 
             setIsError(true)
             setErrorMessage(response.statusText)
-            setTimeout(() =>  setIsError(false), 3000)
+            setTimeout(() => setIsError(false), 3000)
         }
 
         console.log(response)
@@ -59,7 +59,7 @@ export const Register = () => {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -200 }}
                     transition={{ duration: .5 }}
-                    className='absolute top-32 z-50'
+                    className="absolute top-32 z-50"
                 >
                     <Alert
                         title="Sucesso"
@@ -78,7 +78,7 @@ export const Register = () => {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -200 }}
                     transition={{ duration: .5 }}
-                    className='absolute top-32 z-50'
+                    className="absolute top-32 z-50"
                 >
                     <Alert
                         title="Error"

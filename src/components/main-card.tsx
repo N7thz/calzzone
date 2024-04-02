@@ -1,10 +1,10 @@
-'use client'
+"use client"
 
-import { useState } from 'react'
-import { RotateCcwSquare } from 'lucide-react'
-import { Card, CardHeader, CardTitle } from './ui/card'
-import { Button } from './ui/button'
-import { Animation } from './animation'
+import { useState } from "react"
+import { RotateCcwSquare } from "lucide-react"
+import { Card, CardHeader, CardTitle } from "./ui/card"
+import { Button } from "./ui/button"
+import { Animation } from "./animation"
 
 export const MainCard = () => {
 
@@ -13,7 +13,7 @@ export const MainCard = () => {
     return (
 
         <Card
-            className='w-2/3 border border-primary p-2 rounded-md flex flex-col items-center gap-20 relative'
+            className="w-2/3 border border-primary p-2 rounded-md flex flex-col items-center gap-20 relative"
         >
             <CardHeader>
                 <CardTitle>
@@ -23,12 +23,12 @@ export const MainCard = () => {
             <Animation
                 animate={{ rotate: isActive ? 90 : 0 }}
             >
-                <Card className='min-h-[240px] min-w-[340px]'/>
+                <Card className="min-h-[240px] min-w-[340px]" />
             </Animation>
             <Button
-                size={'icon'}
+                size={"icon"}
                 onClick={() => setIsActive(!isActive)}
-                className='absolute bottom-3 right-3'
+                className="absolute bottom-3 right-3"
             >
                 <RotateCcwSquare />
             </Button>

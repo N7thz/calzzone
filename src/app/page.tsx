@@ -1,15 +1,15 @@
-import { Main } from '@/components/main'
-import { Metadata } from 'next'
+import { Main } from "@/components/main"
+import { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: 'Calzzone | Login'
+  title: "Calzzone | Login"
 }
 
 export default function Home() {
 
   return (
 
-    <div className='min-h-screen'>
+    <div className="min-h-screen">
       <Main />
     </div>
   )

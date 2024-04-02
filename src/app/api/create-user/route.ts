@@ -1,7 +1,7 @@
-import { prisma } from '@/lib/prisma'
-import { User } from '@prisma/client'
-import { NextRequest, NextResponse } from 'next/server'
-import { hash } from 'bcryptjs'
+import { prisma } from "@/lib/prisma"
+import { User } from "@prisma/client"
+import { NextRequest, NextResponse } from "next/server"
+import { hash } from "bcryptjs"
 
 export async function POST(request: NextRequest) {
 
@@ -17,10 +17,10 @@ export async function POST(request: NextRequest) {
 
         return new
             NextResponse(
-                'The email already exist. try again more later.',
+                "The email already exist. try again more later.",
                 {
                     status: 400,
-                    statusText: 'The email already exist.'
+                    statusText: "The email already exist."
                 }
             )
 
@@ -35,7 +35,7 @@ export async function POST(request: NextRequest) {
             }
         })
 
-        return new NextResponse('Created task', {
+        return new NextResponse("Created task", {
             status: 201
         })
     }

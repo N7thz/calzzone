@@ -1,9 +1,9 @@
-'use client'
+"use client"
 
-import { FC } from 'react'
-import { motion } from 'framer-motion'
-import { AnimationProps } from '@/@types'
-import { twMerge } from 'tailwind-merge'
+import { FC } from "react"
+import { motion } from "framer-motion"
+import { AnimationProps } from "@/@types"
+import { twMerge } from "tailwind-merge"
 
 export const Animation: FC<AnimationProps> = ({
     children, initial, whileInView, animate, exit, transition, className
@@ -18,7 +18,7 @@ export const Animation: FC<AnimationProps> = ({
             transition={transition}
             animate={animate}
             className={twMerge(
-                'flex items-center justify-center',
+                "flex items-center justify-center",
                 className
             )}
         >

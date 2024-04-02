@@ -1,4 +1,4 @@
-'use client'
+"use client"
 
 import { Button } from "./ui/button"
 import { useRouter } from "next/navigation"
@@ -9,7 +9,7 @@ export const ButtonCreateCards = () => {
 
     return (
 
-        <Button onClick={() => push('/create-cards')}>
+        <Button onClick={() => push("/create-cards")}>
             add cards
         </Button>
     )

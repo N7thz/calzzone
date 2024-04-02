@@ -1,12 +1,12 @@
-'use client'
+"use client"
 
-import { useState } from 'react'
-import { FormType } from '@/@types'
-import { FormCard } from './form-card'
-import { useRouter } from 'next/navigation'
-import { Animation } from './animation'
-import { Alert } from './alert-modal'
-import { XCircle } from 'lucide-react'
+import { useState } from "react"
+import { FormType } from "@/@types"
+import { FormCard } from "./form-card"
+import { useRouter } from "next/navigation"
+import { Animation } from "./animation"
+import { Alert } from "./alert-modal"
+import { XCircle } from "lucide-react"
 
 export const Main = () => {
 
@@ -15,16 +15,16 @@ export const Main = () => {
 
     async function login(data: FormType) {
 
-        const response = await fetch('/api/login', {
-            method: 'POST',
+        const response = await fetch("/api/login", {
+            method: "POST",
             body: JSON.stringify(data)
         })
 
         if (response.status === 200) {
-            push('/home')
+            push("/home")
         } else if (response.status === 400) {
 
-            setIsError(true) 
+            setIsError(true)
 
             setTimeout(() => setIsError(false), 3000)
         }
@@ -34,11 +34,11 @@ export const Main = () => {
 
     return (
 
-        <main className='w-full h-full flex justify-center items-center pt-56'>
+        <main className="w-full h-full flex justify-center items-center pt-56">
             <FormCard
-                title='login'
-                option='cadastrar'
-                link='/register'
+                title="login"
+                option="cadastrar"
+                link="/register"
                 onSubmitFunction={login}
             />
 
@@ -49,7 +49,7 @@ export const Main = () => {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -200 }}
                     transition={{ duration: .5 }}
-                    className='absolute top-32 z-50'
+                    className="absolute top-32 z-50"
                 >
                     <Alert
                         title="Error"

@@ -13,12 +13,12 @@ export const Alert: FC<AlertProps> = ({
 
         <AlertBox
             className={twMerge(
-                'flex items-center gap-2 bg-zinc-50 dark:bg-zinc-950',
+                "flex items-center gap-2 bg-zinc-50 dark:bg-zinc-950",
                 className
             )}
             variant={variant}
         >
-            <Icon size={28} className={iconColor}/>
+            <Icon size={28} className={iconColor} />
             <div>
                 <AlertTitle className="text-xl">
                     {title}

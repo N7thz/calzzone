@@ -1,7 +1,7 @@
-import { prisma } from '@/lib/prisma'
-import { User } from '@prisma/client'
-import { compare } from 'bcryptjs'
-import { NextRequest, NextResponse } from 'next/server'
+import { prisma } from "@/lib/prisma"
+import { User } from "@prisma/client"
+import { compare } from "bcryptjs"
+import { NextRequest, NextResponse } from "next/server"
 
 export async function POST(request: NextRequest) {
 
@@ -16,10 +16,10 @@ export async function POST(request: NextRequest) {
     if (!user) {
 
         return new NextResponse(
-            'error',
+            "error",
             {
                 status: 400,
-                statusText: 'Invalid email or password'
+                statusText: "Invalid email or password"
             }
         )
     }
@@ -29,7 +29,7 @@ export async function POST(request: NextRequest) {
     if (user && isPasswordCorretly) {
 
         return new NextResponse(
-            'sucess',
+            "sucess",
             {
                 status: 200
             }

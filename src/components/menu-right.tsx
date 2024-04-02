@@ -22,17 +22,17 @@ export const MenuRight = ({ className }: StyleProps) => {
             <SheetTrigger asChild>
                 <Menu className={className} />
             </SheetTrigger>
-            <SheetContent side='left'>
+            <SheetContent side="left">
                 <div>
                     <h1>
                         Options
                     </h1>
                     <div>
-                        <section className='flex gap-2 items-center'>
+                        <section className="flex gap-2 items-center">
                             <h2>background color:</h2>
                             <Input
-                                type='color'
-                                className='w-12 h-9 rounded-lg'
+                                type="color"
+                                className="w-12 h-9 rounded-lg"
                             />
                         </section>
                     </div>
