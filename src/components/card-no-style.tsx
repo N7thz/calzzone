@@ -1,26 +1,25 @@
-import {
-    Card, CardHeader, CardTitle, CardContent, CardDescription, CardFooter
-} from "@/components/ui/card"
-import { AvatarUser } from "./avatar-user"
+import { Card } from "@/components/ui/card"
+import { ContentCardHorizontal } from "./content-card-horizontal"
+import { ContentCardVertical } from "./content-card-vertical"
+import { ComponentProps } from "react"
 
-export const CardNoStyle = () => {
+interface CardNoStyleProps extends ComponentProps<"div"> {
+    isActive: boolean
+}
 
-    return (
+export const CardNoStyle = ({ isActive, className }: CardNoStyleProps) => {
 
-        <Card className="h-[240px] w-[340px] overflow-hidden">
-            <CardHeader className="h-1/3 border-b border-muted relative">
-                <AvatarUser
-                    className="absolute -bottom-[20%] scale-150"
-                />
-            </CardHeader>
-            <CardContent className="h-2/3 flex flex-col justify-center">
-                <CardTitle className="">
-                    name
-                </CardTitle>
-                <CardDescription>
-                    description
-                </CardDescription>
-            </CardContent>
-        </Card>
-    )
+    if (isActive) {
+        return (
+            <div className={className}>
+                <ContentCardVertical />
+            </div>
+        )
+    } else {
+        return (
+            <div className={className}>
+                <ContentCardHorizontal />
+            </div>
+        )
+    }
 }

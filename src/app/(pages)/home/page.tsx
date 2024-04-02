@@ -19,9 +19,8 @@ export default function Page() {
         <div
             className="min-h-screen flex justify-center items-center"
         >
-            <Dropzone />
-            {/* <Card
-                className="w-10/12 max-h-[600px] border-primary border-dashed"
+            <Card
+                className="w-10/12 max-h-[600px] border-primary"
             >
                 <CardHeader>
                     <CardTitle>
@@ -32,7 +31,7 @@ export default function Page() {
                     <Aside />
                     <MainCard />
                 </CardContent>
-            </Card> */}
+            </Card>
         </div>
     )
 }

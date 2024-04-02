@@ -1,15 +1,19 @@
 "use client"
 
-import { useCallback, useState } from "react"
+import { Dispatch, SetStateAction, useCallback, useState } from "react"
 import { useDropzone } from "react-dropzone"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import {
+    Card, CardContent, CardDescription, CardHeader, CardTitle
+} from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Upload, X } from "lucide-react"
 import { twMerge } from "tailwind-merge"
+import Image from "next/image"
 
 interface HasFileProps {
-    file: File
+    file: File,
+    setFile: Dispatch<SetStateAction<File | null>>
 }
 
 export const Dropzone = () => {
@@ -27,9 +31,12 @@ export const Dropzone = () => {
         }
     })
 
-    console.log(file)
-
-    if (file) return <HasFile file={file} />
+    if (file) return (
+        <HasFile
+            file={file}
+            setFile={setFile}
+        />
+    )
 
     return (
 
@@ -63,22 +70,34 @@ export const Dropzone = () => {
     )
 }
 
-const HasFile = ({ file }: HasFileProps) => {
+const HasFile = ({ file, setFile }: HasFileProps) => {
 
     const { name, size } = file
+    const url = URL.createObjectURL(file)
 
     return (
         <Card className="flex items-center">
+
+            <Image
+                src={url}
+                width={120}
+                height={120}
+                alt=""
+            />
+
             <CardHeader>
                 <CardTitle>
                     {name}
                 </CardTitle>
                 <CardDescription>
-                    {size}
+                    {(size / 1000).toFixed(2)} kb
                 </CardDescription>
             </CardHeader>
             <CardContent>
-                <X />
+                <X
+                    className="hover:text-primary hover:scale-105 duration-200"
+                    onClick={() => setFile(null)}
+                />
             </CardContent>
         </Card>
     )
