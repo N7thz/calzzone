@@ -3,7 +3,7 @@ import {
     Avatar,
     AvatarFallback,
     AvatarImage,
-} from "@/components/ui/avatar"
+} from "./ui/avatar"
 
 export const AvatarUser = ({ className }: StyleProps) => {
 

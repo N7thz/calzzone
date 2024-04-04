@@ -4,13 +4,13 @@ import { FC } from "react"
 import Link from "next/link"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
-import { Button } from "@/components/ui/button"
+import { Button } from "./ui/button"
 import {
     Card, CardHeader, CardTitle, CardContent, CardFooter
-} from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Separator } from "@/components/ui/separator"
+} from "./ui/card"
+import { Input } from "./ui/input"
+import { Label } from "./ui/label"
+import { Separator } from "./ui/separator"
 import { FormType } from "@/@types"
 import { formSchema } from "@/schemas"
 

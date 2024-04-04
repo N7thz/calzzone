@@ -4,9 +4,9 @@ import { Dispatch, SetStateAction, useCallback, useState } from "react"
 import { useDropzone } from "react-dropzone"
 import {
     Card, CardContent, CardDescription, CardHeader, CardTitle
-} from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
+} from "./ui/card"
+import { Input } from "./ui/input"
+import { Label } from "./ui/label"
 import { Upload, X } from "lucide-react"
 import { twMerge } from "tailwind-merge"
 import Image from "next/image"

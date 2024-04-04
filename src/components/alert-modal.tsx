@@ -1,7 +1,7 @@
 import { FC } from "react"
 import {
     Alert as AlertBox, AlertDescription, AlertTitle
-} from "@/components/ui/alert"
+} from "./ui/alert"
 import { twMerge } from "tailwind-merge"
 import { AlertProps } from "@/@types"
 

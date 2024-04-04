@@ -1,6 +1,6 @@
 import {
     CardHeader, CardTitle, CardContent, CardDescription, Card
-} from "@/components/ui/card"
+} from "./ui/card"
 import { AvatarUser } from "./avatar-user"
 
 export const ContentCardVertical = () => {

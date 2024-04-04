@@ -1,9 +1,9 @@
 "use client"
 
 import { useState } from "react"
-import { Card, CardHeader, CardTitle } from "@/components/ui/card"
-import { CardNoStyle } from "@/components/card-no-style"
-import { Button } from "@/components/ui/button"
+import { Card, CardHeader, CardTitle } from "./ui/card"
+import { CardNoStyle } from "./card-no-style"
+import { Button } from "./ui/button"
 import { RotateCcwSquare } from "lucide-react"
 
 export const CardPreview = () => {

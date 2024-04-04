@@ -1,11 +1,15 @@
-import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
-import { Label } from "@/components/ui/label"
-import { Input } from "@/components/ui/input"
-import { Button } from "@/components/ui/button"
+import {
+    Card, CardHeader, CardTitle, CardContent
+} from "./ui/card"
+import { Label } from "./ui/label"
+import { Input } from "./ui/input"
+import { Button } from "./ui/button"
 import { Plus } from "lucide-react"
+import { Select } from "./select"
+import { ScrollArea } from "./ui/scroll-area"
 
 export const CardOptions = () => {
-    
+
     return (
 
         <Card
@@ -16,31 +20,51 @@ export const CardOptions = () => {
                     options
                 </CardTitle>
             </CardHeader>
-            <CardContent className="flex flex-col gap-4">
-                <div className="flex flex-col gap-2 capitalize">
-                    <Label className="pl-1">
-                        name:
-                    </Label>
-                    <Input />
-                </div>
-                <div className="flex flex-col gap-2 capitalize">
-                    <Label className="pl-1">
-                        description:
-                    </Label>
-                    <Input />
-                </div>
-                <div className="flex flex-col gap-2 capitalize">
-                    <Label className="pl-1">
-                        link:
-                    </Label>
-                    <div className="flex gap-1">
+            <ScrollArea className=" max-h-[400px]">
+                <CardContent className="flex flex-col gap-4">
+                    <div className="flex flex-col gap-2 capitalize">
+                        <Label className="pl-1">
+                            name:
+                        </Label>
                         <Input />
-                        <Button size="icon">
-                            <Plus />
-                        </Button>
                     </div>
-                </div>
-            </CardContent>
+                    <div className="flex flex-col gap-2 capitalize">
+                        <Label className="pl-1">
+                            description:
+                        </Label>
+                        <Input />
+                    </div>
+                    <div className="flex flex-col gap-3 capitalize">
+                        <Label className="pl-1">
+                            border radius:
+                        </Label>
+                        <Select />
+                    </div>
+                    <div className="flex flex-col gap-3 capitalize">
+                        <Label className="pl-1">
+                            border color:
+                        </Label>
+                        <Input type="color"/>
+                    </div>
+                    <div className="flex flex-col gap-3 capitalize">
+                        <Label className="pl-1">
+                            letters color:
+                        </Label>
+                        <Input type="color" />
+                    </div>
+                    <div className="flex flex-col gap-2 capitalize">
+                        <Label className="pl-1">
+                            link:
+                        </Label>
+                        <div className="flex gap-1">
+                            <Input />
+                            <Button size="icon">
+                                <Plus />
+                            </Button>
+                        </div>
+                    </div>
+                </CardContent>
+            </ScrollArea>
         </Card>
     )
 }
