@@ -1,10 +1,10 @@
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
-import { ThemeProvider } from "@/context/theme-provider"
-import "./globals.css"
-import { Header } from "@/components/header"
 import { twMerge } from "tailwind-merge"
-
+import { ThemeProvider } from "@/context/theme-provider"
+import { CardProvider } from "@/context/card-context"
+import { Header } from "@/components/header"
+import "./globals.css"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -20,13 +20,20 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-br">
-      <body className={twMerge(inter.className, "backgroundImage")}>
+      <body
+        className={twMerge(
+          inter.className,
+          "bg-background-image bg-cover"
+        )}
+      >
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
         >
-          <Header />
-          {children}
+          <CardProvider>
+            <Header />
+            {children}
+          </CardProvider>
         </ThemeProvider>
       </body>
     </html>

@@ -1,4 +1,4 @@
-import { Register } from "@/components/register"
+import { FormRegister } from "@/components/form-register"
 import { Metadata } from "next"
 
 export const metadata: Metadata = {
@@ -9,8 +9,8 @@ export default function Page() {
 
     return (
 
-        <div className="w-full h-full flex justify-center items-center pt-56">
-            <Register />
+        <div className="min-h-screen flex items-center justify-center">
+            <FormRegister />
         </div>
     )
 }

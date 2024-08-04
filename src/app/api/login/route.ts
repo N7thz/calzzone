@@ -2,10 +2,13 @@ import { prisma } from "@/lib/prisma"
 import { User } from "@prisma/client"
 import { compare } from "bcryptjs"
 import { NextRequest, NextResponse } from "next/server"
+import jwt from "jsonwebtoken"
 
 export async function POST(request: NextRequest) {
 
     const { email, password }: User = await request.json()
+
+    console.log(email, password)
 
     const user = await prisma.user.findUnique({
         where: {
@@ -13,26 +16,37 @@ export async function POST(request: NextRequest) {
         }
     })
 
-    if (!user) {
+    
 
-        return new NextResponse(
-            "error",
-            {
-                status: 400,
-                statusText: "Invalid email or password"
-            }
-        )
-    }
+    if (!user) return NextResponse.json(
+        "error",
+        {
+            status: 400,
+            statusText: "Invalid email or password"
+        }
+    )
 
     const isPasswordCorretly = await compare(password, user.password)
 
     if (user && isPasswordCorretly) {
 
-        return new NextResponse(
-            "sucess",
-            {
-                status: 200
-            }
-        )
+        const KEY = process.env.JWT_KEY!
+
+        const token = jwt.sign({ email: user.email }, KEY, {
+            expiresIn: 86400
+        })
+
+        return NextResponse.json({
+            token,
+            user
+        })
     }
+
+    return NextResponse.json(
+        "error",
+        {
+            status: 400,
+            statusText: "Invalid email or password"
+        }
+    )
 }   

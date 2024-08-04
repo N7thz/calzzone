@@ -1,4 +1,4 @@
-import { Main } from "@/components/main"
+import { FormLogin } from "@/components/form-login"
 import { Metadata } from "next"
 
 export const metadata: Metadata = {
@@ -6,11 +6,9 @@ export const metadata: Metadata = {
 }
 
 export default function Home() {
-
   return (
-
-    <div className="min-h-screen">
-      <Main />
+    <div className="min-h-screen flex items-center justify-center">
+      <FormLogin />
     </div>
   )
 }

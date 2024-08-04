@@ -1,18 +1,22 @@
-import { useState } from "react"
-import { Metadata } from "next"
-import { Card, CardHeader, CardTitle, CardContent, CardDescription } from "@/components/ui/card"
-import { Aside } from "@/components/aside"
-import { MainCard } from "@/components/main-card"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { useDropzone } from "react-dropzone"
-import { Dropzone } from "@/components/dropzone"
+"use client"
 
-export const metadata: Metadata = {
-    title: "Calzzone | Home"
-}
+import { Metadata } from "next"
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
+import { useCard } from "@/context/card-context"
+
+// export const metadata: Metadata = {
+//     title: "Calzzone | Home"
+// }
 
 export default function Page() {
+
+    const { user } = useCard()
+
+    console.log(user)
+
+    if (!user) return
+
+    const { email } = user
 
     return (
 
@@ -24,12 +28,10 @@ export default function Page() {
             >
                 <CardHeader>
                     <CardTitle>
-                        Olá nome
+                        Olá { email }
                     </CardTitle>
                 </CardHeader>
                 <CardContent className="flex gap-6">
-                    <Aside />
-                    <MainCard />
                 </CardContent>
             </Card>
         </div>

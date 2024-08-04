@@ -53,6 +53,9 @@ const config = {
           foreground: "hsl(var(--card-foreground))",
         },
       },
+      backgroundImage: {
+        'background-image': "url('https://i.pinimg.com/originals/40/04/bd/4004bd1eb9c744182963df7966bfc58b.gif')"
+      },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
